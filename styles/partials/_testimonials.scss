@@ -1,0 +1,33 @@
+.testimonials {
+	text-align: center;
+	p {
+		margin: 0 auto;
+		text-align-last: center;
+	}
+	.text {
+		width: 80%;
+		margin: calcRem (30px) auto;
+	}
+	.icofont-quote-left {
+		font-size: calcRem(55px);
+		color: #e1e1e1;
+		margin-bottom: calcRem(20px);
+	}
+	.main {
+		@include fontLife (2, 20px, bold, $black);
+	}
+	p {
+		letter-spacing: 0.32px;
+	}
+	h3:after {
+		content:"- Company Name";
+		@include fontLife (2, 13px, bold, $grey);
+		letter-spacing: 1.82px;
+		margin-top: calcRem(-10px);
+		display: block;
+	}
+	.dots {
+		padding-top: calcRem(50px);
+	}
+
+}

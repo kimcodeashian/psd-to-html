@@ -1,0 +1,70 @@
+.values {
+	@include flexLife (row, space-between);
+	padding: 0;
+	border: 2px solid $greyBG;
+	
+	figure {
+		padding: 3%;
+		width: 25%;
+		border-right: 2px solid $greyBG;
+		&:first-child {
+			border-left: 1px solid $greyBG;
+		}
+		i {
+			@include fontSize (40px);
+		}
+		h3 {
+			@include marginR (20px, 0px);
+		}
+		p {
+			@include fontSize(15px);
+		}
+	}
+
+
+	/* Portrait tablet and small desktops */
+	@media (max-width: 940px) {
+		flex-direction: column;
+		figure {
+			width: 100%;
+			@include flexLife (row, space-between);
+			align-items: center;
+			border-bottom: 2px solid $greyBG;
+			.top {
+				@include flexLife (column, none);
+				width: 20%;
+			}
+			i {
+				margin: 0 auto;
+			}
+			h3 {
+				margin: 0 auto;
+				order: -1;
+				text-align: center;
+			}
+			p {
+				width: 75%;
+			}
+		}
+	}
+	/* Landscape tablet and down */
+	@media (max-width: 720px) {
+		figure {
+			i {
+				display: none;
+			}
+		}
+	}
+	/* Landscape phones and down */
+	@media (max-width: 575px) {
+		figure {
+			@include flexLife (column, none);
+			text-align: justify;
+			text-align-last: center;
+
+			.top, p {
+				width: 90%;
+			}
+		}
+	}
+}

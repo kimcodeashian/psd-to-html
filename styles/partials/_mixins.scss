@@ -1,0 +1,41 @@
+//FUNCTIONS
+	//CALCULATE REM
+@function calcRem($size) { //$size takes px
+	$remSize: $size / 16px;
+	@return #{$remSize}rem;
+}
+
+//MIXINS
+	//FONT STYLING
+@mixin fontLife ($n, $size, $weight, $color) {
+	@if $n == 1 { // blg
+		font-family: $font1;
+	} @else {
+		font-family: $font2;
+	}
+	font-size: $size; //FALLBACK in PX for IE8
+	font-size: calcRem($size);	
+	font-weight: $weight;
+	color: $color;
+}
+	//CHANGING ONLY FONT-SIZE
+@mixin fontSize ($size) { // USE THIS IF YOU JUST WANT TO CHANGE FONT SIZE
+	font-size: $size;
+	font-size: calcRem($size);
+}
+	//FLEX STYLING
+@mixin flexLife ($direction, $justify-content) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify-content;
+}
+	//REM PADDING
+@mixin paddingR ($size1,  $size2:$size1, $size3:$size1, $size4:$size2) {
+	//padding: $size1 $size2 $size3 $size4; //FALLBACK in PX for IE8
+	padding: calcRem($size1) calcRem($size2) calcRem($size3) calcRem($size4);
+}
+	//REM MARGIN
+@mixin marginR ($size1, $size2:$size1 , $size3:$size1, $size4:$size2){
+	//margin: $size1 $size2 $size3 $size4; //FALLBACK in PX for IE8
+	margin: calcRem($size1) calcRem($size2) calcRem($size3) calcRem($size4);
+}

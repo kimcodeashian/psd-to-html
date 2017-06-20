@@ -1,0 +1,49 @@
+.contactUs {
+	background: 
+	  linear-gradient(
+      rgba(3, 3, 3, 0.6), 
+      rgba(3, 3, 3, 0.6)), 
+	  url('../assets/cat_bg.jpg') center 90%/cover;
+
+	.wrapper {
+		@include flexLife (column, space-between);
+	}
+	h2 {
+		color: $white;
+		letter-spacing: 2px;
+		margin-bottom: 0;
+		&:before {
+			content: 'We are the best in the industry';
+			color: $white;
+			letter-spacing: 11px;
+			font-weight: normal;
+		}
+		&:after {
+			content: none;
+		}
+	}
+	p {
+		width: 80%;
+		margin: calcRem(60px) auto;
+		color: $white;
+		text-align: center;
+		line-height: 1.5;
+	}
+	/* Portrait tablet and small desktops */
+	@media (max-width: 940px) {
+		h2:before {
+			letter-spacing: 1vw;
+		}
+		p {
+			width: 90%;
+			margin: calcRem(40px) auto;
+		}	
+	}
+
+	/* Landscape phone to portrait tablet */
+	@media (max-width: 600px) {
+		h2 {
+			letter-spacing: 0px;
+		}
+	}
+}

@@ -1,0 +1,48 @@
+
+footer {
+	@include paddingR (100px, 0px);
+	background-color: $black;
+	.copyright {
+		text-align: center;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+	}
+	.grid {
+		text-align: center;
+		@include flexLife (row, space-around);
+		margin-bottom: calcRem(70px);
+		figure {
+			width: (100% / 3);
+		}
+		h3, i {
+			color: $white;
+			@include marginR (7px, 0px);
+		}
+		i {
+			@include fontSize (30px);
+		}
+		p {
+			@include fontSize (14px);
+			margin: 0;
+		}
+	}
+		/* Landscape phones and down */
+	@media (max-width: 530px) {
+		@include paddingR (20px, 0px);
+		h2 {
+			@include fontSize (19px);
+		}
+		.grid {
+			@include flexLife (column, space-around);
+			figure {
+				width: 80%;
+				margin: 0 auto;
+				@include paddingR (20px, 0px);
+				border-bottom: 1px solid $white;
+				&:first-child {
+					border-top: 1px solid $white;
+				}
+			}
+		}
+	}
+}

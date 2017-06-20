@@ -1,0 +1,171 @@
+.team {
+	background: $greyBG;
+	h2:before {
+		content: 'Our Experts';
+	}
+	h3 {
+		color: $white;
+		&:after {
+			content: 'marketing manager';
+			@include fontLife (2, 13px, bold, $white);
+			display: block;
+			letter-spacing: 0.26px;
+		}
+	}
+	a:hover{
+		border-bottom: none;		
+	}
+
+	i {
+		color: $white;
+		border: 1px solid $white;
+		padding: 3.5%;
+		&:hover {
+			box-shadow: 1px 1px 0px $white;
+			&:nth-of-type(1){
+				background: $facebook;
+			}
+			&:nth-of-type(2){
+				background: $twitter;
+			}
+			&:nth-of-type(3) {
+				background: $google;
+			}
+		}
+
+	}
+	.gallery {
+		@include flexLife (row, space-between);
+		figure {
+			width: 31%;
+			overflow: hidden;
+			margin: 5% 0;
+			position: relative;
+		}
+	}
+	.overlay {
+		position: absolute;
+		@include flexLife (column, space-between);
+	}
+	img {
+		transition: all 1s;
+
+	}
+	figure:hover {
+		.overlay {
+		  opacity: 0.8;
+		  background: $black;
+		  padding: 30% 0;
+		}
+		img {
+			transform: scale(1.1);
+		}
+	}
+
+
+	// ~~~~~~~~~~ MEDIA QUERIES ~~~~~~~~~~~
+	/* Landscape phone to portrait tablet */
+	@media (max-width: 768px) {
+		.gallery {
+			@include flexLife (row, space-between);
+			figure {
+				width: 32%;
+				overflow: hidden;
+				margin: 5% 0;
+				position: relative;
+			}
+		}
+		.overlay { //make the heading/buttons visible and accesible
+			opacity: 1;
+			@include flexLife (column, none);
+			align-items: center;
+			position: relative;
+			height: 90px;
+			padding: 0;
+			h3 {
+				color: $black;
+				@include fontSize (14px);
+				letter-spacing: 1px;
+				margin: 0;
+				&:after {
+					@include fontSize(11px);
+					font-weight: normal;
+					color: $black;
+					margin-top: calcRem(-8px);
+					display: block;
+					text-align: center;
+				}
+			}
+			
+		}
+		.icons {
+			width: 70%;
+			@include flexLife (row, space-between);
+			i { //assign background colors
+				color: $greyBG;
+				@include paddingR (9px);
+				@include fontSize (20px); //Increase size for accessibility
+				&:nth-of-type(1){
+					background: $facebook;
+				}
+				&:nth-of-type(2){
+					background: $twitter;
+				}
+				&:nth-of-type(3) {
+					background: $google;
+				}
+			}
+
+		}
+		figure:hover { //taking off hover effects
+		 	.overlay {
+				background: none;
+				padding: 0;
+			}
+			img {
+				transform: none;
+			}
+		}//figure
+	}
+
+	/* Landscape phones and down */
+	@media (max-width: 600px) {
+		.gallery {
+			@include flexLife (column, space-between);
+			figure {
+				width: 100%;
+				margin: 0 auto;
+				img {
+					width: 50%;
+					height: 100%;
+				}
+			}
+		}
+		figure {
+			display: flex; //brings overlay beside
+			flex-direction: row;
+			&:nth-of-type(even) {
+				flex-direction: row-reverse;
+			}
+		}
+		.overlay { //make the heading/buttons visible and accesible
+			opacity: 1;
+			@include flexLife (column, space-around);
+			align-items: center;
+			position: relative;
+			height: auto;
+			padding: 0;
+			h3 {
+				color: $black;
+				@include fontSize (20px);
+				line-height: 1.2;
+				&:after {
+					@include fontSize(14px);
+					margin-top: calcRem(10px);
+				}
+			} //h3
+		} //overlay
+		
+	}
+
+}

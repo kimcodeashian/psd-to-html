@@ -1,0 +1,127 @@
+.serviceHeader {
+	@include paddingR (80px, 0px);
+	background: url('../assets/bg.png');
+	h2:before{
+		content: 'What we do';
+	}
+}
+.service {
+	@include paddingR (0px);
+
+	&List { // 3 ROWS
+		@include flexLife (column, none);
+	}
+
+	figure {
+		@include flexLife (row, none);
+		.img {
+			width: 50%;
+			height: calcRem(500px);
+		}
+		&:nth-of-type(even) {
+   			 flex-direction: row-reverse;
+		}
+	}
+	article {
+		@include paddingR (130px, 50px, 150px, 140px);
+		@include flexLife (column, space-between);
+		max-width: 570px;
+		width: 50%;
+		height: calcRem(500px);
+		p, button{
+			margin: 0;
+		}
+		h3 {
+			margin: 0;
+			position: relative;
+			&:before {
+				@include fontLife (2, 73px, normal, #d8d8d8);
+				line-height: 1.6;
+				position: absolute;
+				left: -10px;
+				top: 10px;
+				transform: translate(-100%, -50%);
+			}
+			&:after {
+				content: '';
+				border-bottom: 1px solid $black;
+				width: calcRem(50px);
+				margin-top: calcRem(5px);
+				display: block;
+			}
+		}
+	}	
+	// adds images & header numbers corresponding for each SERIVCE FIGURE blg
+	@for $i from 1 through 3 { // ADJUST NUMBER FOR ADDITIONAL SERVICES
+	 	figure:nth-child(#{$i}) {
+	 		.img { 
+	 			background: url('../assets/service_0#{$i}.jpg') center/cover;
+	 		}
+	 		h3:before {
+	 			content:'0#{$i}';
+	 		}
+	 	}
+	}
+
+	/* Portrait tablet and small desktops */
+	@media (max-width: 940px) {
+		.serviceHeader {
+			@include paddingR (40px, 0px);
+		}
+		figure {
+			flex-direction: column;
+			width: 200%;
+			&:nth-of-type(even) {
+	   			 flex-direction: column;
+			}	
+			.img {
+				height: 200px;
+			}
+		}
+		article {
+			max-width: 50%;
+			align-items: center;
+			padding: 3% 6%;
+			height: calcRem(300px);
+			h3:after {
+				border-bottom: 1px solid $black;
+				width: 100%;
+			}
+			p {
+				text-align: center;
+			}
+		}
+	}
+
+	/* Landscape phone to portrait tablet */
+	@media (max-width: 768px) {
+		figure{
+			padding: 5% 0;
+			&:nth-of-type(even) {
+	   			 background: rgba(3, 3, 3, 0.03);
+			}	
+			.img {
+				display: none;
+			}
+		}
+		article {
+			h3:before {
+				@include fontSize (60px);
+				left: -5px;
+				top: 15px;
+			}
+		}
+
+	}
+
+	/* Landscape phones and down */
+	@media (max-width: 480px) {
+		article {
+			h3:before {
+				@include fontSize (50px);
+				top: 18px;
+			}
+		}
+	}
+}
+	 

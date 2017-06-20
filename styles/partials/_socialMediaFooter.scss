@@ -1,0 +1,33 @@
+.socialMediaFooter {
+	@include flexLife (row,none);
+	a {
+		width: (100% / 4);
+		&:hover {
+			border: none;
+		}
+	}
+	figure {
+		@include paddingR (30px, 0px);
+		text-align: center;
+		border: 6px solid transparent;	
+		&:hover {
+			border: 6px solid $black;
+		}
+		i {
+			@include fontSize (25px);
+			color: $white;
+		}
+		&.facebook {
+			background: $facebook;
+		}
+		&.twitter {
+			background: $twitter;
+		}
+		&.google {
+			background: $google;
+		}
+		&.pinterest {
+			background: #de393a;
+		}
+	}
+}

@@ -1,0 +1,124 @@
+.projects {
+	h2:before {
+		content: 'What we did';
+	}
+	button {
+		display: none;
+	}
+	.nav {
+		max-width: calcRem(450px);
+		width: 100%;
+		margin: 5% auto 1%;
+		li {
+			color: $grey;
+			@include fontLife(2, 14px, bold, $grey);
+			letter-spacing: 0.26px;
+		}
+	}
+	a {
+		&:hover{
+			color: $black;
+			border-bottom: 1px solid $black;
+		}
+	}
+	.gallery { 
+		@include flexLife (row, space-between);
+		margin-top: calcRem(40px);
+		flex-wrap: wrap;
+		figure {
+			width: 31%;
+			overflow: hidden; 
+			position: relative;
+			margin-bottom: calcRem(35px);
+		}
+	}
+	img {
+		transition: all 1s;
+	}
+	.overlay {
+		position: absolute;
+		@include flexLife (column, space-between);
+		padding: 25% 0;
+		h3 {
+			color: $white;
+			&:after {
+				content: 'photoshop';
+				@include fontLife (2, 13px, normal, $white);
+				letter-spacing: 0.5px;
+				margin-top: calcRem(-5px);
+				display: block;
+				text-align: center;
+			}
+		}
+		i {
+			color: $white;
+			@include fontSize (18px);
+			display: inline;
+			&:hover {
+				color: darkred;
+			}
+		}
+	}
+	figure:hover {
+	 	.overlay {
+			opacity: 0.75;
+			background: $black;
+		}
+		img {
+			transform: scale(1.1);
+		}
+	}
+	
+	/* Landscape phone to portrait tablet */
+	@media (max-width: 768px) {
+		.overlay { //make the heading/buttons visible and accesible
+			opacity: 1;
+			@include flexLife (row, none);
+			align-items: center;
+			position: relative;
+			height: 5px;
+			@include paddingR (20px, 0px);
+			h3 {
+				color: $black;
+				@include fontSize (12px);
+				letter-spacing: 1px;
+				&:after {
+					@include fontSize(10px);
+					color: $black;
+					margin-top: calcRem(-8px);
+					display: block;
+					text-align: left;
+				}
+			}
+			i {
+				color: $black;
+				@include fontSize (15px); //Increase size for accessibility
+			}
+		}
+		figure:hover { //taking off hover effects
+		 	.overlay {
+				background: none;
+			}
+			img {
+				transform: none;
+			}
+		}
+	}
+	@media (max-width: 600px) {
+		.gallery {
+			justify-content: space-around;
+			figure{
+				width: 43%;
+			}
+		}
+		figure:nth-of-type(4), figure:nth-of-type(5){
+			display:none;
+		}
+		button {
+			display: block;
+		}
+	}
+}
+
+	
+

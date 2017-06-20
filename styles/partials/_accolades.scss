@@ -1,0 +1,62 @@
+.accolades{
+	background: $black;
+	@include paddingR (70px, 0px);
+	.wrapper {
+		@include flexLife (row, space-between);
+	}
+	figure { 
+		width: (100% / 4);
+	}
+	img {
+		margin: 0 auto;
+		display: block;
+		max-width: none;
+		width: initial;
+		}
+	i {
+		color: $white;
+	}
+	h2 {
+		color: $white;
+		font-weight: normal;
+		&:before, &:after{ //clear general h2 styling
+			content: '';
+			content: none;
+		}
+	}
+	p {
+		text-transform: uppercase;
+		text-align: center;
+		@include fontLife (2, 13px, bold, $white)
+		letter-spacing: 4.16px;
+	}
+	/* Landscape phone to portrait tablet */
+	@media (max-width: 768px) {
+		@include paddingR (20px, 0px);
+		h2 {
+			margin: 0;
+			@include fontSize(16px);
+		}
+		p {
+			@include fontSize(13px);
+			margin:0;
+			font-weight: normal;
+		}
+		.wrapper {
+			flex-wrap: wrap;
+		}
+		figure {
+			width: 50%;
+			border: 1px solid rgba(255, 255, 255, 0.5);
+			@include paddingR (10px, 0px);
+		}
+	}
+
+	/* Landscape phones and down */
+	@media (max-width: 480px) {
+		img {
+			display: none;
+		}
+	}
+
+}      
