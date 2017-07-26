@@ -551,16 +551,17 @@ header {
     .service figure {
       -webkit-flex-direction: column;
       -ms-flex-direction: column;
-      flex-direction: column;
-      width: 200%; }
+      flex-direction: column; }
       .service figure:nth-of-type(even) {
         -webkit-flex-direction: column;
         -ms-flex-direction: column;
         flex-direction: column; }
       .service figure .img {
-        height: 200px; }
+        height: 200px;
+        width: 100%; }
     .service article {
-      max-width: 50%;
+      max-width: none;
+      width: 100%;
       -webkit-align-items: center;
       -ms-flex-align: center;
       align-items: center;

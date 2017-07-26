@@ -70,16 +70,17 @@
 		}
 		figure {
 			flex-direction: column;
-			width: 200%;
 			&:nth-of-type(even) {
 	   			 flex-direction: column;
 			}	
 			.img {
 				height: 200px;
+				width: 100%;
 			}
 		}
 		article {
-			max-width: 50%;
+			max-width: none;
+			width: 100%;
 			align-items: center;
 			padding: 3% 6%;
 			height: calcRem(300px);
